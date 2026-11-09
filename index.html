@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>ScrapXtrade | Global B2B Scrap Trading Marketplace | Verified Buyers & Sellers</title>
+  <meta name="description" content="Connect directly with verified global buyers and sellers of metal, plastic, paper, e-waste, and battery scrap. Live scrap prices, zero brokerage, direct WhatsApp trade.">
+  
+  <!-- Favicons -->
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+  <link rel="alternate icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/favicon.svg">
+  <meta name="theme-color" content="#059669">
+  
+  <!-- Google Fonts & Tailwind CSS CDN -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  
+  <!-- Custom Optimized Styles -->
+  <link rel="stylesheet" href="./css/style.css">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
+            },
+            slate: {
+              850: '#151e2e',
+              950: '#0a0f1d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-[#f8fafc] text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+
+  <!-- =========================================================================
+       1. Top Announcement Bar & Live Rates Ticker
+       ========================================================================= -->
+  <div class="bg-slate-950 text-white text-xs border-b border-slate-800/80 sticky top-0 z-40">
+    <div class="max-w-[1440px] mx-auto px-4 py-2 flex items-center justify-between gap-4">
+      <!-- Live Indicator & Marquee -->
+      <div class="flex items-center gap-2 overflow-hidden flex-1">
+        <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-md bg-emerald-500/20 text-emerald-400 font-extrabold text-[10px] tracking-wide shrink-0 border border-emerald-500/30">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+          LIVE RATES
+        </span>
+        <div class="ticker-wrap">
+          <div id="live-ticker-marquee" class="ticker-content text-slate-300">
+            <!-- Populated dynamically by prices.js -->
+            <span class="mx-3">Loading live global scrap rates...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Contact Info (Desktop) -->
+      <div class="hidden lg:flex items-center gap-4 text-slate-400 shrink-0 text-[11px]">
+        <a href="mailto:support@scrapxtrade.com" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+          <i class="bi bi-envelope"></i> support@scrapxtrade.com
+        </a>
+        <a href="tel:+919104143448" class="hover:text-emerald-400 transition-colors flex items-center gap-1">
+          <i class="bi bi-telephone"></i> +91 91041 43448
+        </a>
+        <a href="https://wa.me/919104143448" target="_blank" class="hover:text-emerald-400 transition-colors flex items-center gap-1 text-emerald-400 font-bold">
+          <i class="bi bi-whatsapp"></i> WhatsApp Help
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       2. Main Navigation Header
+       ========================================================================= -->
+  <header class="bg-white/95 backdrop-blur-md border-b border-slate-200 sticky top-[33px] z-30 transition-all">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8 h-16 flex items-center justify-between gap-4">
+      
+      <!-- Logo -->
+      <a href="./" class="flex items-center shrink-0" aria-label="ScrapXtrade Home">
+        <img src="./assets/logo.svg" alt="ScrapXtrade Logo" class="h-9 sm:h-10 w-auto">
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-6 text-sm font-semibold text-slate-700">
+        <a href="#marketplace-section" class="hover:text-emerald-600 transition-colors py-1 flex items-center gap-1.5">
+          <i class="bi bi-grid text-emerald-600"></i> Browse Posts
+        </a>
+        <a href="#browse-materials" class="hover:text-emerald-600 transition-colors py-1">
+          Categories
+        </a>
+        <a href="#live-prices-section" class="hover:text-emerald-600 transition-colors py-1 flex items-center gap-1.5">
+          <i class="bi bi-graph-up-arrow text-emerald-600"></i> Live Prices
+          <span class="px-1.5 py-0.5 rounded bg-rose-500 text-white text-[9px] font-black">NEW</span>
+        </a>
+        <a href="#content-section" class="hover:text-emerald-600 transition-colors py-1">
+          News & Insights
+        </a>
+        <a href="#contact-footer" class="hover:text-emerald-600 transition-colors py-1">
+          Contact
+        </a>
+      </nav>
+
+      <!-- Right Header Actions -->
+      <div class="flex items-center gap-3">
+        <!-- Currency Selector Dropdown -->
+        <div class="hidden sm:flex items-center gap-1 bg-slate-100 rounded-lg p-1 border border-slate-200 text-xs">
+          <button onclick="PricesManager.setCurrency('INR')" class="px-2.5 py-1 rounded-md font-bold transition-all text-slate-700 hover:text-emerald-600">₹ INR</button>
+          <button onclick="PricesManager.setCurrency('USD')" class="px-2.5 py-1 rounded-md font-bold transition-all text-slate-700 hover:text-emerald-600">$ USD</button>
+          <button onclick="PricesManager.setCurrency('EUR')" class="px-2.5 py-1 rounded-md font-bold transition-all text-slate-700 hover:text-emerald-600">€ EUR</button>
+        </div>
+
+        <!-- Desktop "Post Scrap" CTA -->
+        <button onclick="PostModalManager.open()" 
+                class="hidden sm:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-extrabold text-xs shadow-md shadow-emerald-700/20 active:scale-95 transition-all">
+          <i class="bi bi-plus-circle-fill text-sm"></i>
+          <span>Post Scrap / Requirement</span>
+        </button>
+
+        <!-- User Login/Profile Container -->
+        <div id="header-user-status">
+          <!-- Injected by auth.js -->
+        </div>
+
+        <!-- Mobile Drawer Hamburger Toggle -->
+        <button id="drawer-toggle-btn" class="md:hidden w-10 h-10 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 flex items-center justify-center text-lg active:scale-95" aria-label="Open Menu">
+          <i class="bi bi-list"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+  <!-- Emerald accent separator line -->
+  <div class="h-0.5 bg-gradient-to-r from-emerald-600 via-teal-500 to-cyan-600 sticky top-[97px] z-30"></div>
+
+  <!-- =========================================================================
+       3. Hero Section & Universal Search Bar
+       ========================================================================= -->
+  <section class="relative bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white pt-10 pb-16 px-4 overflow-hidden">
+    <!-- Ambient Glow & Pattern -->
+    <div class="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:24px_24px] opacity-15"></div>
+    <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/20 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative max-w-[1280px] mx-auto text-center">
+      <!-- Verified Badge -->
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold text-xs mb-4">
+        <i class="bi bi-shield-check text-emerald-400"></i>
+        <span>World's Largest Verified B2B Scrap Network</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight sm:leading-none mb-4 max-w-4xl mx-auto">
+        The Smartest Way to <br class="hidden sm:block">
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">Trade Scrap Worldwide</span>
+      </h1>
+      
+      <p class="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 font-normal">
+        Connect directly with 12,000+ verified scrap buyers, sellers & recyclers across 140+ countries. Zero broker fee, instant WhatsApp connection.
+      </p>
+
+      <!-- Search Card Container -->
+      <div class="max-w-4xl mx-auto bg-white rounded-2xl p-3 sm:p-5 shadow-2xl border border-slate-100 text-slate-800 text-left">
+        <!-- Buy / Sell Mode Toggle Tabs -->
+        <div class="flex items-center justify-between pb-3 mb-3 border-b border-slate-100">
+          <div class="flex items-center gap-2">
+            <button id="hero-tab-buy" class="px-4 py-2 rounded-xl font-bold text-xs bg-emerald-600 text-white shadow-xs">
+              <i class="bi bi-cart-check mr-1"></i> I Want to Buy
+            </button>
+            <button id="hero-tab-sell" class="px-4 py-2 rounded-xl font-bold text-xs bg-slate-100 text-slate-600 hover:bg-slate-200">
+              <i class="bi bi-tag mr-1"></i> I Want to Sell
+            </button>
+          </div>
+          <span class="text-[11px] font-semibold text-slate-400 hidden sm:inline-block">
+            <i class="bi bi-lightning-charge-fill text-amber-500 mr-0.5"></i> Fast Quotations
+          </span>
+        </div>
+
+        <!-- Main Search Form -->
+        <form id="hero-search-form" class="grid grid-cols-1 md:grid-cols-12 gap-3 items-center">
+          <!-- Keyword Input (5 cols) -->
+          <div class="md:col-span-5 relative">
+            <label class="block text-[10px] font-extrabold uppercase text-slate-400 tracking-wider mb-1">Scrap Material / Grade</label>
+            <div class="relative flex items-center">
+              <i class="bi bi-search absolute left-3.5 text-slate-400 text-sm"></i>
+              <input type="text" id="hero-search-input" 
+                     placeholder="e.g. Aluminium Extrusion, HDPE, OCC Paper..." 
+                     class="w-full pl-10 pr-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
+            </div>
+          </div>
+
+          <!-- Category Selector (3 cols) -->
+          <div class="md:col-span-3">
+            <label class="block text-[10px] font-extrabold uppercase text-slate-400 tracking-wider mb-1">Category</label>
+            <select id="hero-search-category" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
+              <option value="all">All Categories</option>
+              <!-- Filled by app.js -->
+            </select>
+          </div>
+
+          <!-- Location Selector (2 cols) -->
+          <div class="md:col-span-2">
+            <label class="block text-[10px] font-extrabold uppercase text-slate-400 tracking-wider mb-1">Location</label>
+            <select id="hero-search-location" class="w-full px-3 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:border-emerald-500 focus:bg-white transition-all">
+              <option value="">Worldwide</option>
+              <option value="India">India</option>
+              <option value="Canada">Canada</option>
+              <option value="USA">United States</option>
+              <option value="UAE">United Arab Emirates</option>
+              <option value="Europe">Europe</option>
+              <option value="Vietnam">Vietnam</option>
+            </select>
+          </div>
+
+          <!-- Search Button (2 cols) -->
+          <div class="md:col-span-2 flex items-end pt-3 md:pt-0">
+            <button type="submit" 
+                    class="w-full py-2.5 md:py-3.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-lg shadow-emerald-700/25 active:scale-95 transition-all flex items-center justify-center gap-1.5">
+              <i class="bi bi-search"></i>
+              <span>Find Scrap</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Quick Trending Search Tags -->
+        <div class="flex items-center gap-2 pt-3 mt-3 border-t border-slate-100 flex-wrap text-xs">
+          <span class="text-slate-400 text-[11px] font-medium">Trending:</span>
+          <button onclick="App.filterBySearch('Aluminium')" class="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] transition-all">Aluminium Extrusion</button>
+          <button onclick="App.filterBySearch('Copper')" class="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] transition-all">Copper Millberry</button>
+          <button onclick="App.filterBySearch('HDPE')" class="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] transition-all">HDPE Drums</button>
+          <button onclick="App.filterBySearch('OCC')" class="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] transition-all">OCC 11 Cardboard</button>
+          <button onclick="App.filterBySearch('Battery')" class="px-2.5 py-1 rounded-md bg-slate-100 hover:bg-emerald-50 hover:text-emerald-700 text-slate-600 font-medium text-[11px] transition-all">Lead-Acid Battery</button>
+        </div>
+      </div>
+
+      <!-- Trust Stats Counter -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-8 pt-6 border-t border-slate-800 text-center">
+        <div>
+          <span class="text-xl sm:text-2xl font-black text-emerald-400 block">12,450+</span>
+          <span class="text-slate-400 text-xs">Verified Traders</span>
+        </div>
+        <div>
+          <span class="text-xl sm:text-2xl font-black text-teal-300 block">140+</span>
+          <span class="text-slate-400 text-xs">Countries Active</span>
+        </div>
+        <div>
+          <span class="text-xl sm:text-2xl font-black text-cyan-400 block">85,000 MT</span>
+          <span class="text-slate-400 text-xs">Monthly Volume</span>
+        </div>
+        <div>
+          <span class="text-xl sm:text-2xl font-black text-amber-400 block">0%</span>
+          <span class="text-slate-400 text-xs">Brokerage / Hidden Fees</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       4. Browse by Major Materials (Interactive Category Carousel)
+       ========================================================================= -->
+  <section class="py-10 bg-white border-b border-slate-200" id="browse-materials">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-6 gap-3">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 mb-2">
+            <i class="bi bi-grid-fill"></i> Verified Categories
+          </div>
+          <h2 class="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight border-l-4 border-emerald-500 pl-3">
+            Browse by Major Materials
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm pl-4 mt-1 mb-0">
+            Discover verified buy leads and bulk scrap trading offers across major industrial sectors
+          </p>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="flex items-center gap-2 self-start sm:self-auto">
+          <div class="flex items-center gap-1.5">
+            <button type="button" id="cat-scroll-prev" 
+                    class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 flex items-center justify-center transition-all shadow-xs"
+                    aria-label="Previous">
+              <i class="bi bi-chevron-left text-xs font-bold"></i>
+            </button>
+            <button type="button" id="cat-scroll-next" 
+                    class="w-9 h-9 rounded-lg bg-slate-100 hover:bg-emerald-50 text-slate-700 hover:text-emerald-700 border border-slate-200 flex items-center justify-center transition-all shadow-xs"
+                    aria-label="Next">
+              <i class="bi bi-chevron-right text-xs font-bold"></i>
+            </button>
+          </div>
+          <button onclick="App.resetFilters()" class="text-xs font-bold text-emerald-600 hover:text-emerald-700 px-3 py-2 rounded-xl hover:bg-emerald-50 transition-all">
+            View All
+          </button>
+        </div>
+      </div>
+
+      <!-- Scrollable Track (snap scroll on mobile) -->
+      <div id="category-scroll-container" class="flex gap-3 sm:gap-4 overflow-x-auto pb-4 pt-1 px-1 scroll-smooth snap-x snap-mandatory hide-scrollbar">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       5. Marketplace Section (Listings, Live Search & Filters)
+       ========================================================================= -->
+  <section class="py-12 bg-slate-50/80 border-b border-slate-200" id="marketplace-section">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      
+      <!-- Marketplace Filter Header -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
+        <div>
+          <div class="flex items-center gap-2">
+            <h2 class="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight">
+              Featured Scrap Listings
+            </h2>
+            <span id="listings-count-badge" class="px-2.5 py-0.5 rounded-md bg-emerald-100 text-emerald-800 font-extrabold text-xs">
+              35 Offers Found
+            </span>
+          </div>
+          <p class="text-slate-500 text-xs sm:text-sm mt-0.5">
+            Verified containers and bulk shipments available for immediate LC/inspection
+          </p>
+        </div>
+
+        <!-- Filter Controls (Type Tabs & Sorting) -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Buy / Sell Mode Pills -->
+          <div class="bg-white p-1 rounded-2xl border border-slate-200 shadow-xs flex items-center gap-1">
+            <button id="tab-type-all" onclick="App.setMarketplaceTab('all')" class="tab-pill px-4 py-2 rounded-xl text-xs font-bold bg-emerald-600 text-white shadow-sm">
+              All Scrap
+            </button>
+            <button id="tab-type-sell" onclick="App.setMarketplaceTab('Sell')" class="tab-pill px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">
+              For Sale
+            </button>
+            <button id="tab-type-buy" onclick="App.setMarketplaceTab('Buy')" class="tab-pill px-4 py-2 rounded-xl text-xs font-bold text-slate-600 hover:bg-slate-100">
+              Buy Leads
+            </button>
+          </div>
+
+          <!-- Quick Post CTA in Marketplace Header -->
+          <button onclick="PostModalManager.open()" class="px-4 py-2 rounded-2xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-xs transition-all flex items-center gap-1.5">
+            <i class="bi bi-plus-lg text-emerald-400"></i> Add Your Listing
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Material Filter Chips (Horizontal Scrollable) -->
+      <div class="flex items-center gap-2 overflow-x-auto pb-3 mb-6 hide-scrollbar">
+        <button onclick="App.filterByChip('all')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-bold bg-slate-900 text-white shadow-xs transition-all whitespace-nowrap" data-category="all">
+          All Materials
+        </button>
+        <button onclick="App.filterByChip('Metal')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Metal">
+          Metal
+        </button>
+        <button onclick="App.filterByChip('Plastic')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Plastic">
+          Plastic
+        </button>
+        <button onclick="App.filterByChip('Paper & Packaging')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Paper & Packaging">
+          Paper & OCC
+        </button>
+        <button onclick="App.filterByChip('Battery')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Battery">
+          Battery
+        </button>
+        <button onclick="App.filterByChip('Electronic')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Electronic">
+          E-Waste
+        </button>
+        <button onclick="App.filterByChip('Machinery & Industrial')" class="cat-filter-chip px-3.5 py-1.5 rounded-md text-xs font-semibold bg-white border border-slate-200 text-slate-700 hover:border-emerald-500 transition-all whitespace-nowrap" data-category="Machinery & Industrial">
+          Machinery
+        </button>
+      </div>
+
+      <!-- Listings Grid (Rendered by listings.js) -->
+      <div id="listings-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
+        <!-- Dynamic Cards Injected Here -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       6. LIVE SCRAP MARKET PRICES SECTION
+       ========================================================================= -->
+  <section class="py-12 bg-white border-b border-slate-200" id="live-prices-section">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      
+      <!-- Live Price Board Header -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-6">
+        <div>
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-md text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 mb-2">
+            <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+            Real-Time Market Benchmarks
+          </div>
+          <h2 class="font-extrabold text-2xl md:text-3xl text-slate-900 tracking-tight border-l-4 border-rose-500 pl-3">
+            Live Scrap Prices Today
+          </h2>
+          <p class="text-slate-500 text-xs sm:text-sm pl-4 mt-1 mb-0">
+            Daily physical spot rates for copper, aluminium, plastic polymers, OCC cardboard & battery scrap
+          </p>
+        </div>
+
+        <!-- Currency Switcher & Category Tabs -->
+        <div class="flex flex-wrap items-center gap-3">
+          <!-- Currency switcher pill -->
+          <div class="flex items-center bg-slate-100 p-1 rounded-xl text-xs font-bold border border-slate-200">
+            <button onclick="PricesManager.setCurrency('INR')" class="px-3 py-1.5 rounded-lg text-slate-700 hover:text-emerald-700">INR (₹)</button>
+            <button onclick="PricesManager.setCurrency('USD')" class="px-3 py-1.5 rounded-lg text-slate-700 hover:text-emerald-700">USD ($)</button>
+            <button onclick="PricesManager.setCurrency('EUR')" class="px-3 py-1.5 rounded-lg text-slate-700 hover:text-emerald-700">EUR (€)</button>
+            <button onclick="PricesManager.setCurrency('AED')" class="px-3 py-1.5 rounded-lg text-slate-700 hover:text-emerald-700">AED</button>
+          </div>
+
+          <!-- Live Price Filter Tabs -->
+          <div class="flex items-center gap-1.5 text-xs font-bold">
+            <button onclick="PricesManager.setCategory('all')" class="px-3 py-1.5 rounded-xl bg-slate-900 text-white">All</button>
+            <button onclick="PricesManager.setCategory('Metal')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700">Metal</button>
+            <button onclick="PricesManager.setCategory('Plastic')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700">Plastic</button>
+            <button onclick="PricesManager.setCategory('Battery')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700">Battery</button>
+            <button onclick="PricesManager.setCategory('Paper')" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700">Paper</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Desktop Price Board Table -->
+      <div class="hidden md:block overflow-hidden rounded-2xl border border-slate-200 shadow-xs bg-white">
+        <table class="w-full text-left border-collapse price-table">
+          <thead>
+            <tr>
+              <th>Material / Commodity</th>
+              <th>Benchmark Market</th>
+              <th>Category</th>
+              <th>Today's Rate</th>
+              <th>24h Change</th>
+              <th class="text-center">7-Day Trend</th>
+              <th class="text-right">Action</th>
+            </tr>
+          </thead>
+          <tbody id="price-table-body">
+            <!-- Populated by prices.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Price Cards (Optimized for Mobile on the go) -->
+      <div id="mobile-price-cards" class="grid grid-cols-1 gap-3 md:hidden">
+        <!-- Populated by prices.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       7. Direct Connection Platform Notice Banner
+       ========================================================================= -->
+  <section class="py-8 bg-gradient-to-r from-emerald-800 to-teal-900 text-white">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-4 text-left">
+          <div class="w-14 h-14 rounded-2xl bg-white/10 border border-white/20 flex items-center justify-center text-2xl text-emerald-300 shrink-0">
+            <i class="bi bi-shield-lock-fill"></i>
+          </div>
+          <div>
+            <h3 class="font-extrabold text-lg sm:text-xl text-white mb-1">
+              Direct Trader-to-Trader Connection Platform
+            </h3>
+            <p class="text-emerald-100 text-xs sm:text-sm max-w-2xl mb-0">
+              ScrapXtrade never charges commissions on trade deals. Connect directly with yard owners, verify inspection certificates, and settle payments on your agreed LC/TT terms.
+            </p>
+          </div>
+        </div>
+
+        <button onclick="PostModalManager.open()" class="px-6 py-3 rounded-lg bg-white text-emerald-900 hover:bg-emerald-50 font-black text-xs sm:text-sm shadow-xl active:scale-95 transition-all shrink-0">
+          Start Trading Free <i class="bi bi-arrow-right ml-1"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       8. Content Hub (News, Blogs, Video Tutorials)
+       ========================================================================= -->
+  <section class="py-12 bg-slate-50/70 border-b border-slate-200" id="content-section">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-10">
+        <span class="text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-md">
+          Market Intelligence &amp; Guides
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mt-2">
+          Knowledge Base for Scrap Professionals
+        </h2>
+        <p class="text-slate-500 text-xs sm:text-sm mt-1">
+          Stay ahead of price swings, regulatory import quotas, and recycling yard best practices.
+        </p>
+      </div>
+
+      <!-- Blogs Grid -->
+      <h3 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+        <i class="bi bi-journal-text text-emerald-600"></i> Featured Articles & Guides
+      </h3>
+      <div id="blogs-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <!-- Injected by app.js -->
+      </div>
+
+      <!-- News & Videos 2-Column Split -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+        <!-- Industry News (6 cols) -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i class="bi bi-newspaper text-emerald-600"></i> Global Industry News
+            </h3>
+            <span class="text-xs text-emerald-600 font-bold">Latest Flash</span>
+          </div>
+          <div id="news-grid" class="flex flex-col gap-3">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+
+        <!-- Video Walkthroughs (6 cols) -->
+        <div class="lg:col-span-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+              <i class="bi bi-camera-video-fill text-emerald-600"></i> Recycling Yard Videos
+            </h3>
+            <span class="text-xs text-emerald-600 font-bold">Tutorials & Tours</span>
+          </div>
+          <div id="videos-grid" class="grid grid-cols-2 gap-3">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================================
+       9. Comprehensive Footer
+       ========================================================================= -->
+  <footer class="bg-slate-950 text-white pt-16 pb-24 md:pb-16 border-t border-slate-800" id="contact-footer">
+    <div class="max-w-[1440px] mx-auto px-4 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+        <!-- Brand & Mission (2 cols) -->
+        <div class="lg:col-span-2">
+          <img src="./assets/logo.svg" alt="ScrapXtrade" class="h-10 mb-4 brightness-200">
+          <p class="text-slate-400 text-xs sm:text-sm leading-relaxed mb-4 max-w-sm">
+            ScrapXtrade is the world’s leading digital marketplace connecting verified recyclers, scrap processors, and international trading houses. 
+          </p>
+          <div class="flex items-center gap-3 text-slate-400 text-base">
+            <a href="https://wa.me/919104143448" target="_blank" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"><i class="bi bi-whatsapp"></i></a>
+            <a href="mailto:support@scrapxtrade.com" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"><i class="bi bi-envelope"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center hover:bg-emerald-600 hover:text-white transition-all"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-4">Quick Links</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#marketplace-section" class="hover:text-white transition-colors">Browse Marketplace</a></li>
+            <li><a href="#browse-materials" class="hover:text-white transition-colors">Major Materials</a></li>
+            <li><a href="#live-prices-section" class="hover:text-white transition-colors">Live Price Board</a></li>
+            <li><button onclick="PostModalManager.open()" class="hover:text-white transition-colors">Post Requirement</button></li>
+            <li><button onclick="AuthManager.open()" class="hover:text-white transition-colors">Trader Verification</button></li>
+          </ul>
+        </div>
+
+        <!-- Scrap Categories -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-4">Materials</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="#marketplace-section" onclick="App.filterByChip('Metal')" class="hover:text-white transition-colors">Metal Scrap (HMS / Extrusion)</a></li>
+            <li><a href="#marketplace-section" onclick="App.filterByChip('Plastic')" class="hover:text-white transition-colors">Plastic (HDPE / LDPE / PET)</a></li>
+            <li><a href="#marketplace-section" onclick="App.filterByChip('Paper & Packaging')" class="hover:text-white transition-colors">OCC & Paper Packaging</a></li>
+            <li><a href="#marketplace-section" onclick="App.filterByChip('Battery')" class="hover:text-white transition-colors">Battery & Lead Scrap</a></li>
+            <li><a href="#marketplace-section" onclick="App.filterByChip('Electronic')" class="hover:text-white transition-colors">E-Waste & Circuit Boards</a></li>
+          </ul>
+        </div>
+
+        <!-- Direct Contact Help -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-4">Trade Support</h4>
+          <p class="text-xs text-slate-400 mb-2">Have bulk tons to sell or require customs clearance assistance?</p>
+          <div class="text-xs text-slate-300 space-y-2">
+            <div class="flex items-center gap-2"><i class="bi bi-telephone text-emerald-400"></i> +91 91041 43448</div>
+            <div class="flex items-center gap-2"><i class="bi bi-envelope text-emerald-400"></i> support@scrapxtrade.com</div>
+            <div class="flex items-center gap-2"><i class="bi bi-clock text-emerald-400"></i> Mon - Sat: 9:00 AM - 7:00 PM</div>
+          </div>
+        </div>
+
+        <!-- Legal -->
+        <div>
+          <h4 class="text-xs font-black uppercase tracking-wider text-emerald-400 mb-4">Legal</h4>
+          <ul class="space-y-2 text-xs text-slate-400">
+            <li><a href="/terms.html" class="hover:text-white transition-colors">Terms &amp; Conditions</a></li>
+            <li><a href="/privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></li>
+            <li><a href="/terms.html#tc-3" class="hover:text-white transition-colors">Safety Guidelines</a></li>
+            <li><a href="/terms.html#tc-4" class="hover:text-white transition-colors">No Brokerage Policy</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Copyright Notice -->
+      <div class="pt-8 border-t border-slate-800 text-center text-xs text-slate-500 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <div>
+          &copy; 2026 ScrapXtrade Global Marketplace. All rights reserved.
+        </div>
+        <div class="flex gap-4">
+          <a href="/privacy.html" class="hover:text-white hover:underline transition-colors">Privacy Policy</a>
+          <a href="/terms.html" class="hover:text-white hover:underline transition-colors">Terms &amp; Conditions</a>
+          <a href="/terms.html#tc-3" class="hover:text-white hover:underline transition-colors">Safety Guidelines</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       10. Modals & Overlays
+       ========================================================================= -->
+
+  <!-- Modal 1: Post Details View Modal -->
+  <div id="details-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 modal-backdrop">
+    <div id="details-modal-content" class="bg-white rounded-2xl shadow-2xl max-w-4xl w-full overflow-hidden border border-slate-200 modal-content-panel relative">
+      <!-- Injected by listings.js -->
+    </div>
+  </div>
+
+  <!-- Modal 2: Contact Seller / Inquiry Modal -->
+  <div id="inquiry-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-lg w-full p-6 border border-slate-200 relative modal-content-panel">
+      <button onclick="ListingsManager.closeInquiry()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-lg flex items-center justify-center">
+        <i class="bi bi-x-lg text-base"></i>
+      </button>
+
+      <div class="flex items-center gap-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center text-lg">
+          <i class="bi bi-chat-dots-fill"></i>
+        </div>
+        <div>
+          <h3 class="font-extrabold text-slate-900 text-base mb-0">Contact Scrap Seller</h3>
+          <p id="inquiry-post-title" class="text-xs text-slate-500 truncate max-w-xs mb-0">Scrap Listing</p>
+        </div>
+      </div>
+
+      <form id="inquiry-form" class="space-y-3.5">
+        <input type="hidden" id="inquiry-post-id" value="">
+        
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Your Name / Company *</label>
+          <input type="text" id="inq-name" required placeholder="e.g. John Doe / Apex Trading LLC" 
+                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp / Phone Number *</label>
+          <input type="tel" id="inq-phone" required placeholder="e.g. +91 98765 43210" 
+                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Requirement / Message</label>
+          <textarea id="inq-msg" rows="3" placeholder="Specify your desired tonnage, CIF port, or target price..." 
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md transition-all">
+          Send Inquiry Directly
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 3: Add Scrap Post / Requirement Modal -->
+  <div id="post-scrap-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-3 sm:p-5 modal-backdrop">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6 sm:p-8 border border-slate-200 relative modal-content-panel">
+      <button onclick="PostModalManager.close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-9 h-9 rounded-lg bg-slate-100 flex items-center justify-center">
+        <i class="bi bi-x-lg text-base"></i>
+      </button>
+
+      <div class="mb-5">
+        <span class="text-xs font-extrabold text-emerald-600 uppercase tracking-wider">Fast Marketplace Publisher</span>
+        <h3 class="text-xl sm:text-2xl font-black text-slate-900 mt-0.5">Post Scrap / Buy Requirement</h3>
+        <p class="text-slate-500 text-xs mb-0">Reach over 12,000 verified scrap traders instantly across the globe</p>
+      </div>
+
+      <form id="post-scrap-form" class="space-y-4">
+        <!-- Type Selection Toggle -->
+        <div class="flex items-center gap-2 p-1 bg-slate-100 rounded-2xl">
+          <button type="button" id="post-type-sell" onclick="PostModalManager.setType('Sell')" 
+                  class="flex-1 py-2.5 rounded-xl font-bold text-xs bg-emerald-600 text-white shadow-sm flex items-center justify-center gap-1.5 transition-all">
+            <i class="bi bi-tag-fill"></i> I Want to Sell Scrap
+          </button>
+          <button type="button" id="post-type-buy" onclick="PostModalManager.setType('Buy')" 
+                  class="flex-1 py-2.5 rounded-xl font-bold text-xs bg-slate-100 text-slate-600 hover:bg-slate-200 flex items-center justify-center gap-1.5 transition-all">
+            <i class="bi bi-cart-check-fill"></i> I Want to Buy (Lead)
+          </button>
+        </div>
+
+        <!-- Material Title -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Post Title *</label>
+          <input type="text" id="post-title" required placeholder="e.g. 500 MT Clean 6063 Aluminium Extrusions in Bales" 
+                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm text-slate-800 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <!-- Category & Subcategory Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Major Category *</label>
+            <select id="post-category" required class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+              <option value="Metal">Metal Scrap</option>
+              <option value="Plastic">Plastic Scrap</option>
+              <option value="Paper & Packaging">Paper & Packaging</option>
+              <option value="Battery">Battery Scrap</option>
+              <option value="Electronic">Electronic (E-Waste)</option>
+              <option value="Machinery & Industrial">Machinery & Industrial</option>
+              <option value="Rubber & Tyre">Rubber & Tyre</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Grade / Specification</label>
+            <select id="post-subcategory" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+              <option value="Aluminium Extrusions 6063">Aluminium Extrusions 6063</option>
+              <option value="HMS 1&2 Scrap">HMS 1&2 Scrap</option>
+              <option value="Copper Wire / Millberry">Copper Wire / Millberry</option>
+              <option value="Stainless Steel 304/316">Stainless Steel 304/316</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Quantity & Price Row -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Quantity (MT / KG) *</label>
+            <input type="text" id="post-quantity" required placeholder="e.g. 100 MT or 5 Containers" 
+                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Price (or leave for Request)</label>
+            <input type="text" id="post-price" placeholder="e.g. $1,850 / MT or Price on Request" 
+                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+
+        <!-- Location & Company -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Location / Port of Loading *</label>
+            <input type="text" id="post-location" required placeholder="e.g. Mundra Port, India or Houston, USA" 
+                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-700 mb-1">Company Name</label>
+            <input type="text" id="post-company" placeholder="e.g. Global Scrap Corporation" 
+                   class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+          </div>
+        </div>
+
+        <!-- WhatsApp Phone -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">WhatsApp Phone Number *</label>
+          <input type="tel" id="post-phone" required placeholder="e.g. +91 91041 43448" 
+                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <!-- Image Upload Preview Box -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Upload Scrap Photos</label>
+          <div id="post-image-preview">
+            <label for="post-file-input" class="cursor-pointer border-2 border-dashed border-slate-300 hover:border-emerald-500 rounded-xl p-4 flex flex-col items-center justify-center text-center transition-all bg-slate-50 hover:bg-emerald-50/40">
+              <i class="bi bi-cloud-arrow-up text-2xl text-emerald-600 mb-1"></i>
+              <span class="text-xs font-bold text-slate-700">Upload Scrap Photos</span>
+              <span class="text-[10px] text-slate-400">PNG, JPG, WEBP up to 5MB</span>
+            </label>
+          </div>
+          <input type="file" id="post-file-input" accept="image/*" class="hidden" onchange="PostModalManager.handleImageUpload(event)">
+        </div>
+
+        <!-- Description -->
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Description / Notes</label>
+          <textarea id="post-desc" rows="2" placeholder="Mention moisture level, packaging, payment terms, or inspection details..." 
+                    class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all">
+          Publish Listing Instantly
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal 4: Unified Auth Modal (OTP Login & Register) -->
+  <div id="auth-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 sm:p-7 border border-slate-200 relative modal-content-panel">
+      <button onclick="AuthManager.close()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-lg flex items-center justify-center">
+        <i class="bi bi-x-lg text-base"></i>
+      </button>
+
+      <div class="text-center mb-6">
+        <img src="./assets/logo.svg" alt="ScrapXtrade" class="h-8 mx-auto mb-2">
+        <h3 class="font-black text-slate-900 text-lg sm:text-xl">Unified Trader Access</h3>
+        <p class="text-slate-500 text-xs">Verify your number for fast WhatsApp inquiries & posting</p>
+      </div>
+
+      <!-- Step 1: Phone / Role -->
+      <div id="auth-step-1" class="space-y-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Mobile Number (with country code) *</label>
+          <input type="tel" id="auth-phone" placeholder="e.g. +91 91041 43448" value="+91 91041 43448" 
+                 class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:border-emerald-500">
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Your Nature of Business</label>
+          <select id="auth-role" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 text-xs text-slate-800 focus:outline-none focus:border-emerald-500">
+            <option value="Scrap Recycler">Scrap Recycler / Smelter</option>
+            <option value="Yard Owner">Yard Owner / Scrap Merchant</option>
+            <option value="International Trader">International Exporter / Importer</option>
+            <option value="Industrial Manufacturer">Manufacturing Generator</option>
+          </select>
+        </div>
+
+        <button onclick="AuthManager.sendOTP()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md transition-all">
+          Send OTP Verification Code
+        </button>
+      </div>
+
+      <!-- Step 2: OTP Entry -->
+      <div id="auth-step-2" class="space-y-4 hidden">
+        <div class="text-center">
+          <span class="text-xs text-slate-500 block">OTP code sent to:</span>
+          <span id="auth-display-phone" class="text-xs font-bold text-slate-800 block mb-2"></span>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-700 mb-1">Enter 4-Digit Code</label>
+          <input type="text" id="auth-otp-code" maxlength="6" value="7890" 
+                 class="w-full px-3.5 py-2.5 text-center tracking-widest text-lg font-black rounded-xl border border-slate-300 text-slate-800 focus:outline-none focus:border-emerald-500">
+          <span class="text-[10px] text-slate-400 text-center block mt-1">Hint: Test OTP code is 7890</span>
+        </div>
+
+        <button onclick="AuthManager.verifyOTP()" class="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-xs shadow-md transition-all">
+          Verify & Log In
+        </button>
+
+        <button onclick="AuthManager.resetForm()" class="w-full py-1.5 text-slate-500 hover:text-slate-800 text-xs font-semibold">
+          Change Phone Number
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Article Reader Modal -->
+  <div id="article-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 modal-backdrop">
+    <div class="bg-white rounded-2xl shadow-2xl max-w-xl w-full p-6 sm:p-8 border border-slate-200 relative modal-content-panel">
+      <button onclick="App.closeArticleModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-700 w-8 h-8 rounded-lg flex items-center justify-center">
+        <i class="bi bi-x-lg text-base"></i>
+      </button>
+
+      <span id="article-modal-date" class="text-xs font-bold text-emerald-600 block mb-1">Nov 2026</span>
+      <h3 id="article-modal-title" class="font-black text-slate-900 text-lg sm:text-xl leading-tight mb-4">Article Title</h3>
+      <p id="article-modal-body" class="text-slate-600 text-xs sm:text-sm leading-relaxed mb-6"></p>
+
+      <button onclick="App.closeArticleModal()" class="w-full py-2.5 rounded-xl bg-slate-900 text-white font-bold text-xs">
+        Close Article
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu (Slide-Over) -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 translate-x-full transition-transform duration-300 ease-in-out bg-slate-950/70 md:hidden flex justify-end">
+    <div class="w-72 bg-white h-full p-5 flex flex-col justify-between shadow-2xl">
+      <div>
+        <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+          <img src="./assets/logo.svg" alt="ScrapXtrade" class="h-8">
+          <button id="drawer-close-btn" class="w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-600">
+            <i class="bi bi-x-lg"></i>
+          </button>
+        </div>
+
+        <div id="mobile-user-status" class="mb-4 pb-4 border-b border-slate-100">
+          <!-- Injected by auth.js -->
+        </div>
+
+        <nav class="space-y-3 text-sm font-bold text-slate-700">
+          <a href="#" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2 text-emerald-700"><i class="bi bi-house mr-2"></i> Home</a>
+          <a href="#marketplace-section" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2"><i class="bi bi-grid mr-2"></i> Browse Scrap Listings</a>
+          <a href="#browse-materials" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2"><i class="bi bi-boxes mr-2"></i> Major Materials</a>
+          <a href="#live-prices-section" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2"><i class="bi bi-graph-up mr-2"></i> Live Scrap Prices</a>
+          <a href="#content-section" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2"><i class="bi bi-newspaper mr-2"></i> News & Insights</a>
+          <a href="#contact-footer" onclick="document.getElementById('drawer-close-btn').click()" class="block py-2"><i class="bi bi-headset mr-2"></i> Helpline</a>
+          <div class="pt-3 mt-3 border-t border-slate-100">
+            <span class="text-[10px] font-black uppercase tracking-wider text-slate-400">Legal</span>
+          </div>
+          <a href="/terms.html" class="block py-2 text-slate-500 text-xs"><i class="bi bi-file-text mr-2"></i> Terms &amp; Conditions</a>
+          <a href="/privacy.html" class="block py-2 text-slate-500 text-xs"><i class="bi bi-shield-lock mr-2"></i> Privacy Policy</a>
+        </nav>
+      </div>
+
+      <div class="pt-4 border-t border-slate-100 space-y-2">
+        <button onclick="PostModalManager.open(); document.getElementById('drawer-close-btn').click()" class="w-full py-2.5 rounded-xl bg-emerald-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-md">
+          <i class="bi bi-plus-circle-fill"></i> Post Requirement
+        </button>
+        <a href="https://wa.me/919104143448" target="_blank" class="w-full py-2.5 rounded-xl bg-emerald-50 text-emerald-700 font-bold text-xs flex items-center justify-center gap-1.5 border border-emerald-200">
+          <i class="bi bi-whatsapp"></i> Chat Support
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       11. Mobile Optimization: Floating Add Post Button
+       ========================================================================= -->
+  <div class="fixed bottom-[68px] right-3 sm:right-5 z-40 md:hidden pointer-events-auto">
+    <button onclick="PostModalManager.open()" 
+            class="floating-add-btn flex items-center gap-1.5 px-3.5 py-2 rounded-full text-white border-2 border-white/95"
+            aria-label="Add Scrap Post" 
+            title="Add Scrap Post">
+      <div class="w-5 h-5 rounded-full bg-white/25 flex items-center justify-center">
+        <i class="bi bi-plus-lg text-xs font-black text-white leading-none"></i>
+      </div>
+      <span class="text-xs font-black tracking-tight">Post</span>
+    </button>
+  </div>
+
+  <!-- =========================================================================
+       12. Mobile Optimization: Ultra-Premium Glassmorphism Bottom Navigation Bar
+           (iOS Dynamic Island Frosted Glass Pill Style)
+       ========================================================================= -->
+  <div class="mobile-bottom-nav flex md:hidden fixed bottom-2.5 left-2 right-2 xs:left-3 xs:right-3 sm:left-1/2 sm:-translate-x-1/2 sm:max-w-md z-40 pointer-events-none select-none">
+    <div class="liquid-glass-nav w-full h-[54px] rounded-full px-2 flex items-center justify-between pointer-events-auto">
+      
+      <!-- 1. Home -->
+      <a href="#" class="mobile-nav-btn active" data-target="home" aria-label="Home">
+        <i class="bi bi-house-door-fill nav-icon"></i>
+        <span class="nav-label">Home</span>
+        <span class="nav-indicator"></span>
+      </a>
+
+      <!-- 2. Seller -->
+      <a href="#marketplace-section" class="mobile-nav-btn" data-target="seller" aria-label="Seller Listings">
+        <i class="bi bi-tag nav-icon"></i>
+        <span class="nav-label">Seller</span>
+        <span class="nav-indicator"></span>
+      </a>
+
+      <!-- 3. Buyer -->
+      <a href="#marketplace-section" class="mobile-nav-btn" data-target="buyer" aria-label="Buyer Leads">
+        <i class="bi bi-bag-check nav-icon"></i>
+        <span class="nav-label">Buyer</span>
+        <span class="nav-indicator"></span>
+      </a>
+
+      <!-- 4. Directory -->
+      <a href="#browse-materials" class="mobile-nav-btn" data-target="directory" aria-label="Directory">
+        <i class="bi bi-person-lines-fill nav-icon"></i>
+        <span class="nav-label">Directory</span>
+        <span class="nav-indicator"></span>
+      </a>
+
+      <!-- 5. Live Prices -->
+      <a href="#live-prices-section" class="mobile-nav-btn" data-target="prices" aria-label="Live Prices">
+        <div class="relative">
+          <i class="bi bi-graph-up nav-icon"></i>
+          <span class="absolute -top-0.5 -right-1 flex h-2 w-2">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-rose-500"></span>
+          </span>
+        </div>
+        <span class="nav-label">Prices</span>
+        <span class="nav-indicator"></span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./js/listings.js"></script>
+  <script src="./js/prices.js"></script>
+  <script src="./js/postModal.js"></script>
+  <script src="./js/auth.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
+

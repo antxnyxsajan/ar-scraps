@@ -1,0 +1,606 @@
+{
+  "siteInfo": {
+    "name": "ScrapXtrade",
+    "tagline": "Global B2B Scrap Trading Marketplace",
+    "phone": "+91 91041 43448",
+    "whatsapp": "+919104143448",
+    "email": "support@scrapxtrade.com",
+    "activeTraders": "12,000+",
+    "countries": "140+",
+    "monthlyVolume": "85,000 MT"
+  },
+  "categories": [
+    {
+      "id": "metal",
+      "title": "Metal",
+      "icon": "bi-layers-half",
+      "count": "320+ Offers",
+      "color": "blue",
+      "gradient": "from-blue-500 to-indigo-600",
+      "popular": ["HMS 1&2", "Aluminium Extrusion", "Copper Wire / Millberry", "Stainless Steel 304/316"]
+    },
+    {
+      "id": "plastic",
+      "title": "Plastic",
+      "icon": "bi-recycle",
+      "count": "150+ Offers",
+      "color": "emerald",
+      "gradient": "from-emerald-500 to-teal-600",
+      "popular": ["HDPE Drums", "LDPE Film in Bales", "PET Bottles", "PP Jumbo Bags"]
+    },
+    {
+      "id": "paper",
+      "title": "Paper & Packaging",
+      "icon": "bi-newspaper",
+      "count": "110+ Offers",
+      "color": "yellow",
+      "gradient": "from-yellow-500 to-amber-600",
+      "popular": ["OCC Cardboard Grade 11", "ONP Newsprint", "Kraft Waste"]
+    },
+    {
+      "id": "battery",
+      "title": "Battery",
+      "icon": "bi-battery-charging",
+      "count": "80+ Offers",
+      "color": "amber",
+      "gradient": "from-amber-500 to-orange-600",
+      "popular": ["Lead-Acid Drained", "Lithium-Ion Cells", "EV Battery Modules"]
+    },
+    {
+      "id": "electronic",
+      "title": "Electronic (E-Waste)",
+      "icon": "bi-motherboard",
+      "count": "95+ Offers",
+      "color": "purple",
+      "gradient": "from-purple-500 to-pink-600",
+      "popular": ["Motherboards & PCBs", "RAM & CPUs", "Server Scrap"]
+    },
+    {
+      "id": "automotive",
+      "title": "Automotive & Vehicle",
+      "icon": "bi-truck",
+      "count": "75+ Offers",
+      "color": "red",
+      "gradient": "from-red-500 to-rose-600",
+      "popular": ["Alloy Wheels", "Auto Shredder Residue", "Engine Blocks"]
+    },
+    {
+      "id": "machinery",
+      "title": "Machinery & Industrial",
+      "icon": "bi-gear-wide-connected",
+      "count": "60+ Offers",
+      "color": "slate",
+      "gradient": "from-slate-600 to-slate-800",
+      "popular": ["Electric Motors", "Transformers", "Used Generators"]
+    },
+    {
+      "id": "rubber",
+      "title": "Rubber & Tyre",
+      "icon": "bi-disc",
+      "count": "45+ Offers",
+      "color": "cyan",
+      "gradient": "from-cyan-600 to-teal-700",
+      "popular": ["Tyre Crumb Rubber", "Radial Truck Tyres", "Butyl Inner Tubes"]
+    },
+    {
+      "id": "textile",
+      "title": "Textile & Fabric",
+      "icon": "bi-scissors",
+      "count": "50+ Offers",
+      "color": "pink",
+      "gradient": "from-pink-500 to-rose-500",
+      "popular": ["Cotton Clip Waste", "Polyester Yarn Waste", "Denim Offcuts"]
+    },
+    {
+      "id": "glass",
+      "title": "Glass Scrap",
+      "icon": "bi-droplet-half",
+      "count": "30+ Offers",
+      "color": "teal",
+      "gradient": "from-teal-500 to-emerald-600",
+      "popular": ["Clear Cullet", "Amber Glass Bottles", "Green Wine Glass"]
+    },
+    {
+      "id": "wood",
+      "title": "Wood & Timber",
+      "icon": "bi-tree",
+      "count": "35+ Offers",
+      "color": "orange",
+      "gradient": "from-amber-700 to-orange-800",
+      "popular": ["Pine Pallets", "Hardwood Sawdust", "Plywood Offcuts"]
+    },
+    {
+      "id": "chemical",
+      "title": "Used Oil & Chemical",
+      "icon": "bi-fuel-pump",
+      "count": "25+ Offers",
+      "color": "violet",
+      "gradient": "from-violet-600 to-indigo-800",
+      "popular": ["Used Lube Oil", "Spent Catalysts", "Industrial Solvents"]
+    }
+  ],
+  "listings": [
+    {
+      "id": 1,
+      "title": "6063 Aluminium Extrusions Scrap Clean ISRI Tense",
+      "type": "For Sale",
+      "category": "Metal",
+      "subcategory": "Aluminium • Extrusions",
+      "price": "$1,920 / MT",
+      "quantity": "500 MT",
+      "location": "Mundra Port, Gujarat, India",
+      "flag": "https://flagcdn.com/24x18/in.png",
+      "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=600&auto=format&fit=crop",
+      "slug": "6063-aluminium-extrusions-scrap-clean-isri-tense",
+      "likes": 28,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Tense / 6063 Profile",
+        "Origin": "India",
+        "Port of Loading": "Mundra Port",
+        "Packaging": "Compressed Bales (25 MT / 40ft HQ)",
+        "Monthly Capacity": "1,000 MT / Month",
+        "Payment Terms": "LC at sight / 20% TT Advance",
+        "Inspection": "SGS / Bureau Veritas Accepted"
+      },
+      "seller": {
+        "companyName": "Apex Metal Recyclers Pvt Ltd",
+        "verified": true,
+        "memberSince": "2023",
+        "rating": 4.9,
+        "dealsCompleted": 74,
+        "phone": "+91 91041 43448",
+        "whatsapp": "919104143448",
+        "responseRate": "99% (Avg 10 mins)"
+      },
+      "dateAdded": "2 hours ago",
+      "description": "High quality clean 6063 aluminium extrusion scrap. 98.5% recovery rate with negligible attachments. Pre-inspection photos and laboratory assay reports available upon request."
+    },
+    {
+      "id": 2,
+      "title": "HMS 1 & 2 Heavy Melting Steel Scrap (80:20 Ratio)",
+      "type": "For Sale",
+      "category": "Metal",
+      "subcategory": "Ferrous • Heavy Melting Steel",
+      "price": "$385 / MT",
+      "quantity": "2,000 MT",
+      "location": "Montreal, Quebec, Canada",
+      "flag": "https://flagcdn.com/24x18/ca.png",
+      "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&auto=format&fit=crop",
+      "slug": "hms-1-and-2-heavy-melting-steel-scrap",
+      "likes": 35,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "200 - 206 (HMS 1&2)",
+        "Origin": "Canada",
+        "Port of Loading": "Port of Montreal",
+        "Packaging": "Breakbulk / 20ft Containers",
+        "Monthly Capacity": "5,000 MT / Month",
+        "Payment Terms": "100% Irrevocable LC at Sight",
+        "Inspection": "CCIC / SGS Certified"
+      },
+      "seller": {
+        "companyName": "Laurentian Scrap & Salvage Corp",
+        "verified": true,
+        "memberSince": "2022",
+        "rating": 4.8,
+        "dealsCompleted": 120,
+        "phone": "+1 514 555 0192",
+        "whatsapp": "919104143448",
+        "responseRate": "95%"
+      },
+      "dateAdded": "4 hours ago",
+      "description": "Standard ISRI 200-206 heavy melting steel scrap. Clean industrial dismantlement, free of mud, concrete, sealed cylinders, and non-metallic contamination. Loading ready."
+    },
+    {
+      "id": 3,
+      "title": "HDPE Blue Drum Flakes & Regrind Grade A",
+      "type": "For Sale",
+      "category": "Plastic",
+      "subcategory": "HDPE • Polymer Regrind",
+      "price": "₹44.50 / KG",
+      "quantity": "100 MT",
+      "location": "Jebel Ali Free Zone, Dubai, UAE",
+      "flag": "https://flagcdn.com/24x18/ae.png",
+      "image": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop",
+      "slug": "hdpe-blue-drum-flakes-regrind-grade-a",
+      "likes": 19,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Polymer Flakes (ISRI Plastic)",
+        "Origin": "UAE",
+        "Port of Loading": "Jebel Ali Port",
+        "Packaging": "1 MT Jumbo Bags on Pallets",
+        "Monthly Capacity": "300 MT / Month",
+        "Payment Terms": "TT / LC at sight",
+        "Inspection": "Melt Flow Index (MFI) 0.05-0.12 tested"
+      },
+      "seller": {
+        "companyName": "Gulf Polymer Recycling FZE",
+        "verified": true,
+        "memberSince": "2024",
+        "rating": 5.0,
+        "dealsCompleted": 38,
+        "phone": "+971 4 888 0123",
+        "whatsapp": "919104143448",
+        "responseRate": "98%"
+      },
+      "dateAdded": "Yesterday",
+      "description": "Post-industrial blow moulding HDPE blue drum regrind. Washed, hot-rinsed, screened for zero metal trace. Ideal for blow moulding containers and corrugated pipe extrusion."
+    },
+    {
+      "id": 4,
+      "title": "OCC 11 & ONP Baled Cardboard Waste Paper",
+      "type": "For Sale",
+      "category": "Paper & Packaging",
+      "subcategory": "Paper • Corrugated Containers",
+      "price": "$165 / MT",
+      "quantity": "1,500 MT",
+      "location": "Long Beach, California, USA",
+      "flag": "https://flagcdn.com/24x18/us.png",
+      "image": "https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?w=600&auto=format&fit=crop",
+      "slug": "occ-11-onp-baled-cardboard-waste-paper",
+      "likes": 22,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Grade 11 (OCC)",
+        "Origin": "USA",
+        "Port of Loading": "Port of Long Beach",
+        "Packaging": "High Density Mill Bales (24 MT / 40ft)",
+        "Monthly Capacity": "3,000 MT / Month",
+        "Payment Terms": "LC at sight / CAD",
+        "Inspection": "Moisture guaranteed below 12%"
+      },
+      "seller": {
+        "companyName": "Pacific Coast Fibers Ltd",
+        "verified": true,
+        "memberSince": "2022",
+        "rating": 4.9,
+        "dealsCompleted": 89,
+        "phone": "+1 562 555 0148",
+        "whatsapp": "919104143448",
+        "responseRate": "96%"
+      },
+      "dateAdded": "1 day ago",
+      "description": "Standard American OCC #11 cardboard bales. Dry, uniform, under 1% prohibitives. Consistent supply contract available for paper mills across Southeast Asia & South Asia."
+    },
+    {
+      "id": 5,
+      "title": "Lead-Acid Automotive Drained Battery Scrap (ISRI Rains)",
+      "type": "For Sale",
+      "category": "Battery",
+      "subcategory": "Battery • Lead Acid",
+      "price": "$1,450 / MT",
+      "quantity": "250 MT",
+      "location": "Durban Port, South Africa",
+      "flag": "https://flagcdn.com/24x18/za.png",
+      "image": "https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&auto=format&fit=crop",
+      "slug": "lead-acid-automotive-drained-battery-scrap",
+      "likes": 14,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Rains (Drained Batteries)",
+        "Origin": "South Africa",
+        "Port of Loading": "Durban Port",
+        "Packaging": "Shrink-wrapped Wooden Pallets",
+        "Monthly Capacity": "500 MT / Month",
+        "Payment Terms": "LC / 30% Advance, 70% BL",
+        "Inspection": "Basel Convention Export Compliant"
+      },
+      "seller": {
+        "companyName": "Trans-Africa Smelting & Refining",
+        "verified": true,
+        "memberSince": "2023",
+        "rating": 4.7,
+        "dealsCompleted": 45,
+        "phone": "+27 31 555 0188",
+        "whatsapp": "919104143448",
+        "responseRate": "92%"
+      },
+      "dateAdded": "2 days ago",
+      "description": "Drained lead-acid battery scrap with complete polypropylene cases. Free of acid liquid, non-lead connectors, and foreign dirt. Basel notification permit in place."
+    },
+    {
+      "id": 6,
+      "title": "Looking to Buy: Bare Bright Copper Wire Scrap (Millberry)",
+      "type": "Buy Lead",
+      "category": "Metal",
+      "subcategory": "Copper • Millberry Wire",
+      "price": "Market Rate (LME - 2%)",
+      "quantity": "300 MT / Month",
+      "location": "Nhava Sheva, Mumbai, India",
+      "flag": "https://flagcdn.com/24x18/in.png",
+      "image": "https://images.unsplash.com/photo-1618764400608-9e7115eabb7c?w=600&auto=format&fit=crop",
+      "slug": "buyer-looking-for-bare-bright-copper-wire-scrap",
+      "likes": 41,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Berry / Barley (Millberry)",
+        "Origin": "Any Global Origin (EU / US / Africa)",
+        "Destination Port": "Nhava Sheva Port, India",
+        "Packaging": "Coils or Bales in 20ft FCL",
+        "Monthly Requirement": "300 - 500 MT / Month",
+        "Payment Terms": "100% Confirmed LC at Destination Port",
+        "Inspection": "PSIC & SGS Inspection Mandatory"
+      },
+      "seller": {
+        "companyName": "Bharat Copper Smelters Ltd",
+        "verified": true,
+        "memberSince": "2021",
+        "rating": 5.0,
+        "dealsCompleted": 210,
+        "phone": "+91 22 2845 0000",
+        "whatsapp": "919104143448",
+        "responseRate": "100%"
+      },
+      "dateAdded": "3 hours ago",
+      "description": "Urgent procurement lead: Reputable Indian smelting house seeking monthly CIF supply of 99.9% bare bright copper wire scrap (ISRI Berry/Barley). Instant LC issuance upon contract."
+    },
+    {
+      "id": 7,
+      "title": "Computer Motherboards & Server PCBs Scrap E-Waste",
+      "type": "For Sale",
+      "category": "Electronic",
+      "subcategory": "E-Waste • Green PCBs",
+      "price": "$6,800 / MT",
+      "quantity": "40 MT",
+      "location": "Hamburg, Germany",
+      "flag": "https://flagcdn.com/24x18/de.png",
+      "image": "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&auto=format&fit=crop",
+      "slug": "computer-motherboards-and-server-pcbs-scrap",
+      "likes": 31,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "E-Waste Boards Grade High",
+        "Origin": "Germany",
+        "Port of Loading": "Port of Hamburg",
+        "Packaging": "Gaylord Boxes on Pallets",
+        "Monthly Capacity": "80 MT / Month",
+        "Payment Terms": "Wire Transfer / LC",
+        "Inspection": "Pre-shipment Precious Metals Assay"
+      },
+      "seller": {
+        "companyName": "Bavaria Urban Mining GmbH",
+        "verified": true,
+        "memberSince": "2023",
+        "rating": 4.9,
+        "dealsCompleted": 62,
+        "phone": "+49 89 555 0134",
+        "whatsapp": "919104143448",
+        "responseRate": "97%"
+      },
+      "dateAdded": "3 days ago",
+      "description": "High yield de-populated server motherboard scrap and telecommunication circuit boards. Tested high gold and palladium trace content. Certified WEEE recycler paperwork available."
+    },
+    {
+      "id": 8,
+      "title": "Used Three-Phase Industrial Electric Motors (Elmo Scrap)",
+      "type": "For Sale",
+      "category": "Machinery & Industrial",
+      "subcategory": "Machinery • Electric Motors",
+      "price": "$820 / MT",
+      "quantity": "180 MT",
+      "location": "Rotterdam, Netherlands",
+      "flag": "https://flagcdn.com/24x18/nl.png",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop",
+      "slug": "used-three-phase-industrial-electric-motors",
+      "likes": 18,
+      "isLiked": false,
+      "isSaved": false,
+      "specs": {
+        "ISRI Code": "Elmo (Electric Motors)",
+        "Origin": "Netherlands",
+        "Port of Loading": "Rotterdam Port",
+        "Packaging": "20ft Bulk Containers",
+        "Monthly Capacity": "400 MT / Month",
+        "Payment Terms": "TT / LC at sight",
+        "Inspection": "Copper winding recovery estimated 9-12%"
+      },
+      "seller": {
+        "companyName": "Rotterdam Salvage & Surplus BV",
+        "verified": true,
+        "memberSince": "2022",
+        "rating": 4.8,
+        "dealsCompleted": 53,
+        "phone": "+31 10 555 0199",
+        "whatsapp": "919104143448",
+        "responseRate": "94%"
+      },
+      "dateAdded": "4 days ago",
+      "description": "Three phase alternating electric motors scrap, intact copper winding, cast iron / aluminium body housing. Free of oil, pump assemblies, and excessive gearing."
+    }
+  ],
+  "prices": [
+    {
+      "name": "Copper Wire (Millberry)",
+      "country": "India Mandi",
+      "category": "Metal",
+      "price": "₹745.50 / KG",
+      "change": "+1.85%",
+      "is_up": true,
+      "is_down": false,
+      "range": "₹730 - ₹750",
+      "sparkline": [725, 730, 738, 734, 742, 740, 745.5],
+      "updated": "Just now"
+    },
+    {
+      "name": "Aluminium Extrusion (Tense)",
+      "country": "LME Benchmark",
+      "category": "Metal",
+      "price": "₹198.00 / KG",
+      "change": "+2.40%",
+      "is_up": true,
+      "is_down": false,
+      "range": "₹190 - ₹202",
+      "sparkline": [188, 191, 190, 194, 196, 195, 198],
+      "updated": "Just now"
+    },
+    {
+      "name": "HMS 1&2 Steel Scrap",
+      "country": "Rotterdam Spot",
+      "category": "Metal",
+      "price": "$385.00 / MT",
+      "change": "-0.75%",
+      "is_up": false,
+      "is_down": true,
+      "range": "$380 - $395",
+      "sparkline": [392, 395, 390, 388, 389, 386, 385],
+      "updated": "Just now"
+    },
+    {
+      "name": "HDPE Blue Drum Regrind",
+      "country": "India Market",
+      "category": "Plastic",
+      "price": "₹44.50 / KG",
+      "change": "+1.20%",
+      "is_up": true,
+      "is_down": false,
+      "range": "₹42 - ₹46",
+      "sparkline": [41, 42, 42.5, 43, 44, 43.8, 44.5],
+      "updated": "Just now"
+    },
+    {
+      "name": "LDPE Clear Film Scrap",
+      "country": "Dubai Spot",
+      "category": "Plastic",
+      "price": "₹52.00 / KG",
+      "change": "-1.50%",
+      "is_up": false,
+      "is_down": true,
+      "range": "₹50 - ₹55",
+      "sparkline": [54, 55, 53.5, 53, 52.8, 52.2, 52],
+      "updated": "Just now"
+    },
+    {
+      "name": "OCC Grade 11 Cardboard",
+      "country": "US West Coast",
+      "category": "Paper",
+      "price": "$165.00 / MT",
+      "change": "+3.10%",
+      "is_up": true,
+      "is_down": false,
+      "range": "$155 - $170",
+      "sparkline": [156, 158, 160, 162, 161, 164, 165],
+      "updated": "Just now"
+    },
+    {
+      "name": "Lead-Acid Battery (Rains)",
+      "country": "Global Index",
+      "category": "Battery",
+      "price": "$1,450.00 / MT",
+      "change": "+0.60%",
+      "is_up": true,
+      "is_down": false,
+      "range": "$1,420 - $1,460",
+      "sparkline": [1430, 1435, 1440, 1438, 1445, 1448, 1450],
+      "updated": "Just now"
+    },
+    {
+      "name": "Stainless Steel 304 Scrap",
+      "country": "Europe Benchmark",
+      "category": "Metal",
+      "price": "$1,380.00 / MT",
+      "change": "-1.10%",
+      "is_up": false,
+      "is_down": true,
+      "range": "$1,360 - $1,410",
+      "sparkline": [1405, 1400, 1395, 1390, 1385, 1382, 1380],
+      "updated": "Just now"
+    }
+  ],
+  "blogs": [
+    {
+      "title": "What is ScrapXtrade & How It Works: Step-by-Step B2B Scrap Trading Guide",
+      "slug": "what-is-scrapxtrade-guide",
+      "image": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop",
+      "date": "Nov 2026",
+      "author": "ScrapXtrade Research",
+      "readTime": "5 min read",
+      "snippet": "Learn how verified recyclers, yard merchants, and global traders connect directly on ScrapXtrade with zero brokerage and fast WhatsApp quotes.",
+      "category": "Market Guide"
+    },
+    {
+      "title": "Ferrous vs Non-Ferrous Metal Scrap: Identification, Pricing & Sorting Guide",
+      "slug": "ferrous-vs-non-ferrous-metal-scrap-guide",
+      "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=600&auto=format&fit=crop",
+      "date": "Nov 2026",
+      "author": "Metallurgy Bureau",
+      "readTime": "6 min read",
+      "snippet": "Crucial metallurgical checks, magnet testing, and spectrometer analysis tips to separate high-value copper and aluminium from steel scrap.",
+      "category": "Technical Guide"
+    },
+    {
+      "title": "Plastic Scrap Recycling & Trading: HDPE, LDPE, PET & Global Quality Standards",
+      "slug": "plastic-scrap-recycling-grades-guide",
+      "image": "https://images.unsplash.com/photo-1595278069441-2cf29f8005a4?w=600&auto=format&fit=crop",
+      "date": "Nov 2026",
+      "author": "Polymers Desk",
+      "readTime": "4 min read",
+      "snippet": "Understanding Melt Flow Index (MFI), washing standards, and moisture control when buying baled plastics and post-industrial regrind.",
+      "category": "Industry Insights"
+    }
+  ],
+  "news": [
+    {
+      "title": "Global Scrap Metals Tariff Revision: Zero Import Duty on Selected Non-Ferrous Alloys",
+      "slug": "global-scrap-metals-zero-import-duty",
+      "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&auto=format&fit=crop",
+      "date": "Today, 14:30",
+      "source": "Global Trade Watch",
+      "snippet": "International trade authorities announce revised customs tariff structures aimed at boosting secondary metal smelters and circular economy initiatives."
+    },
+    {
+      "title": "Global Copper Demand Surges as Green Energy & EV Manufacturing Accelerates",
+      "slug": "global-copper-demand-surges-green-energy",
+      "image": "https://images.unsplash.com/photo-1618764400608-9e7115eabb7c?w=600&auto=format&fit=crop",
+      "date": "Yesterday",
+      "source": "Metals Bureau",
+      "snippet": "Record spot prices for bare bright copper wire (ISRI Millberry) driven by aggressive battery plant expansions and grid electrification infrastructure."
+    },
+    {
+      "title": "Ocean Freight Rates Stabilize, Offering Relief to Transatlantic Scrap Exporters",
+      "slug": "ocean-freight-rates-stabilize-exporters",
+      "image": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=600&auto=format&fit=crop",
+      "date": "2 days ago",
+      "source": "Logistics Weekly",
+      "snippet": "Container slot availability opens up across major export ports including Long Beach, Rotterdam, and Hamburg, easing containerized scrap shipping."
+    }
+  ],
+  "videos": [
+    {
+      "title": "How to Use ScrapXtrade: Tutorial to Post Scrap & Find Verified Buyers",
+      "slug": "how-to-use-scrapxtrade-tutorial",
+      "image": "https://images.unsplash.com/photo-1532996122724-e3c354a0b15b?w=600&auto=format&fit=crop",
+      "duration": "03:45",
+      "views": "18.4K views"
+    },
+    {
+      "title": "Bare Bright Copper Scrap Stripping & Sorting: Maximizing Recovery Profit",
+      "slug": "copper-scrap-stripping-and-sorting",
+      "image": "https://images.unsplash.com/photo-1618764400608-9e7115eabb7c?w=600&auto=format&fit=crop",
+      "duration": "07:12",
+      "views": "25.1K views"
+    },
+    {
+      "title": "Automated Auto Shredder Yard: Inside an International Recycling Facility",
+      "slug": "automated-auto-shredder-yard-tour",
+      "image": "https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=600&auto=format&fit=crop",
+      "duration": "09:30",
+      "views": "34.8K views"
+    },
+    {
+      "title": "HDPE Blue Drum Baling & Flaking: Complete Washing Line Walkthrough",
+      "slug": "hdpe-drum-baling-washing-walkthrough",
+      "image": "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?w=600&auto=format&fit=crop",
+      "duration": "05:20",
+      "views": "12.3K views"
+    }
+  ]
+}

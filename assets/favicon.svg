@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <rect width="64" height="64" rx="14" fill="#059669"/>
+  <!-- Modern Geometric Scrap X Mark -->
+  <path d="M18 18 L46 46" stroke="#ffffff" stroke-width="7" stroke-linecap="round"/>
+  <path d="M18 46 L46 18" stroke="#a7f3d0" stroke-width="7" stroke-linecap="round"/>
+  <circle cx="18" cy="18" r="4.5" fill="#ffffff"/>
+  <circle cx="46" cy="46" r="4.5" fill="#ffffff"/>
+  <circle cx="18" cy="46" r="4.5" fill="#a7f3d0"/>
+  <circle cx="46" cy="18" r="4.5" fill="#a7f3d0"/>
+</svg>
+
